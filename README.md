@@ -15,10 +15,10 @@ To correct for uneven illumination and prepare the data for analysis, the follow
 
 ```
 repo/
-├── generate_tiles.groovy     # QuPath Groovy script to export tiles
-├── fiji_macro.ijm            # ImageJ macro for background subtraction
-├── threshold_and_assemble.py # Python script for thresholding and reassembly
-├── assemble_only.py          # Alternative: Assemble tiles without thresholding
+├── 1_Qupath_Tile_Creator.groovy     # QuPath Groovy script to export tiles
+├── 2_FIJI_BG_Subtract.ijm            # ImageJ macro for background subtraction
+├── 3_Threshold_and_Assemble.py # Python script for thresholding and reassembly
+├── 3_Assembly_only.py          # Alternative: Assemble tiles without thresholding
 ├── README.md
 ```
 
@@ -26,19 +26,13 @@ repo/
 
 ## Requirements
 
-- **QuPath** (for tile export)
-- **Fiji / ImageJ** with Rolling Ball plugin
+- **QuPath** 
+- **Fiji / ImageJ** 
 - **Python 3.8+**
   - `pyvips`
   - `tifffile`
   - `argparse`
   - `numpy`
-
-Install dependencies using pip:
-
-```bash
-pip install pyvips tifffile numpy
-```
 
 ---
 
@@ -54,7 +48,7 @@ Run the `generate_tiles.groovy` script within QuPath:
 //   [1] = desired channel name
 ```
 
-Make sure the image is loaded and selected in QuPath, then run:
+Make sure the image is loaded and selected in QuPath:
 
 ```groovy
 Tile_save_path = "/path/to/output_tiles"
@@ -65,11 +59,9 @@ channelNameFilter = "YourChannelName"
 
 ### 2. Background Subtraction using Fiji
 
-Use `fiji_macro.ijm` for background subtraction:
+Use `2_FIJI_BG_Subtract.ijm` for background subtraction:
 
-- Drag the tile folder into Fiji.
-- Run the macro with the rolling ball
-- Processed tiles will be saved to a new output folder.
+You can execute the macro from the command line or execute it within FIJI GUI
 
 ---
 
