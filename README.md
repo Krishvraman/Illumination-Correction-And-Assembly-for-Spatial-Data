@@ -2,12 +2,12 @@
 
 This repository contains a set of scripts for preprocessing large microscopy images by correcting for uneven illumination, removing background noise, and reassembling processed tiles into a standardized final image for downstream analysis.
 
-## ✨ Key Idea
+## Key Idea
 
 To correct for uneven illumination and prepare the data for analysis, the following preprocessing pipeline is performed:
 
 1. **Tile Generation**: Raw microscopy data is split into full-resolution tiles by channel using a QuPath Groovy script.
-2. **Background Subtraction**: A rolling ball algorithm (radius = 18 pixels) is applied on downsampled tile images to create a background mask, which is then subtracted from the original tiles.
+2. **Background Subtraction**: A rolling ball algorithm is applied on downsampled tile images to create a background mask, which is then subtracted from the original tiles.
 3. **Upsampling and Thresholding**: Background-subtracted images are upsampled and a global intensity threshold is applied to eliminate low-intensity background noise.
 4. **Tile Reassembly**: All processed tiles are merged back into a single full-resolution TIFF image, retaining spatial coherence.
 
