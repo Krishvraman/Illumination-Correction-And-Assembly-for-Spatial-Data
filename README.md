@@ -24,7 +24,7 @@ repo/
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 - **QuPath** (for tile export)
 - **Fiji / ImageJ** with Rolling Ball plugin
@@ -42,7 +42,7 @@ pip install pyvips tifffile numpy
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### 1. Generate Tiles from Raw Images
 
@@ -68,7 +68,7 @@ channelNameFilter = "YourChannelName"
 Use `fiji_macro.ijm` for background subtraction:
 
 - Drag the tile folder into Fiji.
-- Run the macro with the rolling ball radius set to 18.
+- Run the macro with the rolling ball
 - Processed tiles will be saved to a new output folder.
 
 ---
@@ -84,11 +84,11 @@ python threshold_and_assemble.py <tile_folder_name> <threshold_value>
 Example:
 
 ```bash
-python threshold_and_assemble.py Experiment1 15
+python threshold_and_assemble.py Experiment1 2
 ```
 
 This will:
-- Threshold all `.tif` tiles using the value `15`
+- Threshold all `.tif` tiles using the value `2`
 - Save thresholded tiles in a new folder
 - Reassemble them into a final `.tif` image
 
@@ -104,13 +104,7 @@ python assemble_only.py /path/to/tiles /path/to/output/final_image.tif
 
 ---
 
-## 📚 References
-
-[1] Sternberg, S.R. (1983). *Biomedical image processing*. Computer, 16(1), 22–34. (Rolling ball algorithm).
-
----
-
-## 🧪 Example Workflow
+##  Example Workflow
 
 ```bash
 # Step 1: Export tiles from QuPath
@@ -121,7 +115,7 @@ python threshold_and_assemble.py MyExperiment 12
 
 ---
 
-## 📌 Notes
+## Notes
 
 - Ensure filenames follow the required `x-<X>_y-<Y>_w-<W>_h-<H>.tif` format for parsing coordinates.
 - The pipeline is optimized for large histology or microscopy images where uneven illumination skews analysis.
